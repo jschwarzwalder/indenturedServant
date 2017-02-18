@@ -1,10 +1,4 @@
-STEP 1:
+- Add ignore list in github (*.meta)
 - Unity takes Oculus Rift head gear as output
 - Unity takes controllers as input
 
-STEP 2:
-
-- create a minimum viable product
-
-
-STEP 3: PROFIT
