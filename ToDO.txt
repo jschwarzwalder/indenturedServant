@@ -1,8 +1,9 @@
 STEP 1:
 - Unity takes Oculus Rift head gear as output
-- Unity controllers as input
+- Unity takes controllers as input
 
 STEP 2:
+
 - create a minimum viable product
 
 
