@@ -28,7 +28,7 @@ public class Countdown : MonoBehaviour
                isCountingDown = false;
             }
 
-            GetComponent<Text>().text = "Time Remaining: \n" + timeRemaining;
+            GetComponent<Text>().text = "Time Remaining: \n" + System.Math.Floor(timeRemaining);
         }
     }
 }
