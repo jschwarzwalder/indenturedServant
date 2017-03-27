@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 114800457008025070}
   - component: {fileID: 114201239179942452}
   - component: {fileID: 54745874039203978}
+  - component: {fileID: 114573715624000624}
   m_Layer: 0
   m_Name: SimpleSardine
   m_TagString: Untagged
@@ -1134,6 +1135,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: 0
+--- !u!114 &114573715624000624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591290675890438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d64445f1718c94d831ec8b6300dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Sardine
 --- !u!114 &114800457008025070
 MonoBehaviour:
   m_ObjectHideFlags: 1
