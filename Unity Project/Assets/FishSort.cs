@@ -21,6 +21,7 @@ public class FishSort : MonoBehaviour
     }
     public FishData sorted_object;
     public Text textObject;
+    public Countdown timer;
     
 
 	// Use this for initialization
@@ -41,9 +42,10 @@ public class FishSort : MonoBehaviour
         FishData data = other.GetComponent<FishData>();
         if (data != null && data.type.Equals( sorted_object.type))
         {
-            //count, set timer to destroy
-            sorted_fish++;
-
+           if (timer.isCountingDown)
+            {
+                sorted_fish++;
+            }
         }
     }
 
@@ -52,8 +54,10 @@ public class FishSort : MonoBehaviour
         FishData data = other.GetComponent<FishData>();
         if (data != null && data.type.Equals(sorted_object.type))
         {
-            //count, set timer to destroy
-            sorted_fish--;
+            if (timer.isCountingDown)
+            {
+                sorted_fish--;
+            }
 
         }
     }

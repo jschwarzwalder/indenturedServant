@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
@@ -26,6 +27,7 @@ public class Countdown : MonoBehaviour
            if (timeRemaining<= 0) {
                timeRemaining = 0;
                isCountingDown = false;
+                SceneManager.LoadScene("end scence");
             }
 
             GetComponent<Text>().text = "Time Remaining: \n" + System.Math.Floor(timeRemaining);
