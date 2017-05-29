@@ -47,6 +47,8 @@ public class FishSort : MonoBehaviour
            if (timer.IsCountingDown)
             {
                 sorted_fish++;
+                timeDeath fadeTheFish = other.GetComponent<timeDeath>();
+                fadeTheFish.timerStarted = true;
             }
         }
     }
@@ -59,6 +61,8 @@ public class FishSort : MonoBehaviour
             if (timer.IsCountingDown)
             {
                 sorted_fish--;
+                timeDeath fadeTheFish = other.GetComponent<timeDeath>();
+                fadeTheFish.timerStarted = false;
             }
 
         }

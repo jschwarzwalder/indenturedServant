@@ -35,18 +35,6 @@ public class MakeItRainFish : MonoBehaviour
         GameObject fish = GameObject.Instantiate(FishPrefab[randomGen], transform.position, transform.rotation);
        
 
-        fish.GetComponent<Rigidbody>().isKinematic = true;
-        fish.GetComponent<NVRInteractableItem>().CanAttach = false;
-
-        Vector3 startScale = Vector3.one * 0.1f;
-        Vector3 endScale = Vector3.one;
-
-        float startTime = Time.time;
-        float overTime = 0.5f;
-        float stopTime = startTime + overTime;
-
-
-        fish.GetComponent<Rigidbody>().isKinematic = false;
-        fish.GetComponent<NVRInteractableItem>().CanAttach = true;
+       
     }
 }
