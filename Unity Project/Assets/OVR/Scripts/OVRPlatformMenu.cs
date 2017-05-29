@@ -177,7 +177,7 @@ public class OVRPlatformMenu : MonoBehaviour
 			}
 		}
 
-		// down reset, but perform no action
+		// down reset, but perform no Action
 		return eBackButtonAction.NONE;
 	}
 
@@ -277,12 +277,12 @@ public class OVRPlatformMenu : MonoBehaviour
 	void Update()
 	{
 #if UNITY_ANDROID
-		eBackButtonAction action = HandleBackButtonState();
-		if ( action == eBackButtonAction.DOUBLE_TAP )
+		eBackButtonAction Action = HandleBackButtonState();
+		if ( Action == eBackButtonAction.DOUBLE_TAP )
 			DoHandler(doubleTapHandler);
-		else if ( action == eBackButtonAction.SHORT_PRESS )
+		else if ( Action == eBackButtonAction.SHORT_PRESS )
 			DoHandler(shortPressHandler);
-		else if ( action == eBackButtonAction.LONG_PRESS )
+		else if ( Action == eBackButtonAction.LONG_PRESS )
 			DoHandler(longPressHandler);
 #endif
 	}

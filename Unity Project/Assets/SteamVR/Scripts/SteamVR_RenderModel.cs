@@ -25,7 +25,7 @@ public class SteamVR_RenderModel : MonoBehaviour
 	// If available, break down into separate components instead of loading as a single mesh.
 	public bool createComponents = true;
 
-	// Update transforms of components at runtime to reflect user action.
+	// Update transforms of components at runtime to reflect user Action.
 	public bool updateDynamically = true;
 
 	// Additional controller settings for showing scrollwheel, etc.

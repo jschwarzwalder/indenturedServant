@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/game_screen.unity
   - enabled: 1
-    path: Assets/end scence.unity
+    path: Assets/end scene.unity

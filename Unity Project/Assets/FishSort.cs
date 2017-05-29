@@ -14,6 +14,8 @@ public class FishSort : MonoBehaviour
         get { return sorted_fish_value; }
         set
         {
+            Debug.Log("Text Object = " + textObject);
+            Debug.Log("Sorted Object = " + sorted_object);
             sorted_fish_value = value;
             textObject.text = sorted_object.type + "s sorted: \n" + sorted_fish_value;
         }
@@ -25,10 +27,10 @@ public class FishSort : MonoBehaviour
     
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 	    sorted_fish = 0;
-
+        Debug.Log(gameObject);
 	}
 	
 	// Update is called once per frame
@@ -42,7 +44,7 @@ public class FishSort : MonoBehaviour
         FishData data = other.GetComponent<FishData>();
         if (data != null && data.type.Equals( sorted_object.type))
         {
-           if (timer.isCountingDown)
+           if (timer.IsCountingDown)
             {
                 sorted_fish++;
             }
@@ -54,7 +56,7 @@ public class FishSort : MonoBehaviour
         FishData data = other.GetComponent<FishData>();
         if (data != null && data.type.Equals(sorted_object.type))
         {
-            if (timer.isCountingDown)
+            if (timer.IsCountingDown)
             {
                 sorted_fish--;
             }

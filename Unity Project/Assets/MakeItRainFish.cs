@@ -1,15 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NewtonVR;
 using UnityEngine;
 
-namespace NewtonVR.Example
-{
+
 	public class MakeItRainFish : MonoBehaviour {
-		public GameObject RocketPrefab0;
-		public GameObject RocketPrefab1;
-		public GameObject RocketPrefab2;
-		public GameObject RocketPrefab3;
-		private GameObject RocketInstance;
+		public GameObject[] FishPrefab;
 
 
 	// Use this for initialization
@@ -21,24 +17,14 @@ namespace NewtonVR.Example
 
 	//	Rigidbody rb = RocketInstance.GetComponent<Rigidbody>();
 	//	rb.velocity = new Vector3(0,-10,0);
+        Debug.Log("Make it Rain Script");
 
-		int randomGen = Random.Range (1, 5);
+		int randomGen = Random.Range (0, FishPrefab.Length);
+	    GameObject fish = GameObject.Instantiate(FishPrefab[randomGen], transform.position, transform.rotation);
 
 
-		if  (randomGen == 1) {
-			RocketInstance = (GameObject)GameObject.Instantiate(RocketPrefab0, this.transform.position, this.transform.rotation);
-		}
-		else if  (randomGen == 2)  {
-			RocketInstance = (GameObject)GameObject.Instantiate(RocketPrefab1, this.transform.position, this.transform.rotation);
-		}
-		else if  (randomGen == 3)  {
-			RocketInstance = (GameObject)GameObject.Instantiate(RocketPrefab2, this.transform.position, this.transform.rotation);
-		}
-		else {
-			RocketInstance = (GameObject)GameObject.Instantiate(RocketPrefab0, this.transform.position, this.transform.rotation);
-		}
-		RocketInstance.GetComponent<Rigidbody>().isKinematic = true;
-		RocketInstance.GetComponent<NVRInteractableItem>().CanAttach = false;
+		fish.GetComponent<Rigidbody>().isKinematic = true;
+		fish.GetComponent<NVRInteractableItem>().CanAttach = false;
 
 		Vector3 startScale = Vector3.one * 0.1f;
 		Vector3 endScale = Vector3.one;
@@ -49,8 +35,8 @@ namespace NewtonVR.Example
 
 
 
-		RocketInstance.GetComponent<Rigidbody>().isKinematic = false;
-		RocketInstance.GetComponent<NVRInteractableItem>().CanAttach = true;
+		fish.GetComponent<Rigidbody>().isKinematic = false;
+		fish.GetComponent<NVRInteractableItem>().CanAttach = true;
 	}
 }
-}
+
