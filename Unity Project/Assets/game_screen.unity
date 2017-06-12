@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426d86cf441c3de4182dd5a70ef7e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 600
+  Duration: 60
   IsCountingDown: 1
   GameAction: {fileID: 898950000}
   Display: {fileID: 898949998}

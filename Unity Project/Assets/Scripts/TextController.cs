@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NewtonVR;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,8 @@ public class TextController : MonoBehaviour {
 
 	int storyLine = -1;
 	public AudioClip audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio9, audio10, audio11, audio12;
+    public NVRHand LeftHand;
+    public NVRHand RightHand;
 
 	//private States myState;
 //	private int pageNumber = 0;
@@ -53,8 +56,10 @@ public class TextController : MonoBehaviour {
 
 		AudioSource audio = GetComponent<AudioSource> ();
 		//print (myState);
-		if (Input.GetKeyDown (KeyCode.RightArrow) || (storyLine != -1 && !audio.isPlaying) || 
-			OVRInput.GetDown (OVRInput.Button.One) || OVRInput.GetDown (OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+		if (Input.GetKeyDown (KeyCode.RightArrow) || (storyLine != -1 && !audio.isPlaying) 
+            || (LeftHand.IsCurrentlyTracked && (LeftHand.HoldButtonDown || LeftHand.UseButtonDown)) 
+            || (RightHand.IsCurrentlyTracked && (RightHand.HoldButtonDown || RightHand.UseButtonDown)))
+			/*OVRInput.GetDown (OVRInput.Button.One) || OVRInput.GetDown (OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)*/
 		{
 			storyLine += 1;
 
