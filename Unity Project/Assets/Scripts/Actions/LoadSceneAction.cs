@@ -10,6 +10,12 @@ public class LoadSceneAction : GameAction
 
     public override void DoAction()
     {
+        GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameController");
+       
+
+        GameManager gameManager = gameManagerObject.GetComponent<GameManager>();
+       // gameManager.FishCollectedToday = 
+
         SceneManager.LoadScene(targetScene);
 
     }
