@@ -187,7 +187,7 @@ namespace Valve.VR.InteractionSystem
 				{
 					for ( currentSegment = loopStartSegment; currentSegment < segmentCount; ++currentSegment )
 					{
-						//Clamp the segment end time to the arc Duration
+						//Clamp the segment end time to the arc duration
 						float segmentEndTime = segmentStartTime + timeStep;
 						if ( segmentEndTime >= arcDuration )
 						{
@@ -205,7 +205,7 @@ namespace Valve.VR.InteractionSystem
 
 						segmentStartTime += timeStep + segmentBreak;
 
-						//If the previous end time or the next start time is beyond the Duration then stop the arc
+						//If the previous end time or the next start time is beyond the duration then stop the arc
 						if ( stopArc || segmentStartTime >= arcDuration || segmentStartTime >= arcHitTime )
 						{
 							break;
