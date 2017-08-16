@@ -324,12 +324,16 @@ Prefab:
     - target: {fileID: 114807493877788956, guid: 490a2641feaa60345b74eaeb94933a31,
         type: 2}
       propertyPath: m_Text
-      value: "Impressive haul! Sadly you will never be able to sort enough fish. \n\nYour
-        employer controls the cost of food and your room and board, so no matter how
-        hard you work, you will never get out of debt, because they charge more than
-        you could possibly earn. \n\nThere are an estimated 20.9 Million people trapped
-        in similiar situations today.\n\nTo learn more about how you can help go to
-        EndSlaveryNow.org in a web browser"
+      value: 'Room and Board - 15 Fish a day
+
+
+        Total Fish Collected:
+
+
+        Days Played:
+
+
+        Debt: '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490a2641feaa60345b74eaeb94933a31, type: 2}
