@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24561656, g: 0.28140768, b: 0.34493145, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -369,18 +369,18 @@ Prefab:
       propertyPath: textObject
       value: 
       objectReference: {fileID: 1281199064}
+    - target: {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
+        type: 2}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 898949997}
     - target: {fileID: 1859299350710908, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
       propertyPath: m_Name
       value: Sardine Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
         type: 2}
-      propertyPath: timer
-      value: 
-      objectReference: {fileID: 898949997}
-    - target: {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
-        type: 2}
-      propertyPath: m_Enabled
+      propertyPath: sorted_fish_value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1175,6 +1175,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134844041140540, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
@@ -2847,6 +2851,15 @@ Prefab:
     - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134844041140540, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
+      propertyPath: m_TagString
+      value: Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
+        type: 2}
+      propertyPath: sorted_fish_value
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}

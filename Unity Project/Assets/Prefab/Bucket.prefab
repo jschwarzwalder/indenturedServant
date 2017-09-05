@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114443124774559198}
   m_Layer: 0
   m_Name: Bucket Trigger
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,6 +309,8 @@ MonoBehaviour:
   sorted_object: {fileID: 114573715624000624, guid: 6b9d251351eaf924393f717af7125938,
     type: 2}
   textObject: {fileID: 0}
+  timer: {fileID: 0}
+  sorted_fish_value: 0
 --- !u!114 &114617181360340540
 MonoBehaviour:
   m_ObjectHideFlags: 1

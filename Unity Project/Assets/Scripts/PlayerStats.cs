@@ -19,9 +19,9 @@ public class PlayerStats : MonoBehaviour {
 
         Text text = GetComponent<Text>();
 
-        text.text = "Room and Board - " + gameManager.RoomAndBoard + "Fish a day\n\n";
-        text.text += "Total Fish Collected - " + gameManager.FishCollectedTotal + "\n\n";
-        text.text += "Fish Collected Today - " + gameManager.FishCollectedToday + "\n\n";
+        text.text = "Room and Board - $" + gameManager.RoomAndBoard + "\n\n";
+        text.text += "Total Earned - $" + gameManager.FishCollectedTotal + "\n\n";
+        text.text += "Earned Today - $" + gameManager.FishCollectedToday + "\n\n";
         text.text += "Days so Far - " + gameManager.DaysPlayed + "\n\n";
         text.text += "\n\n";
         text.text += "Remaining Debt - " + gameManager.FishDebt + "\n\n";
