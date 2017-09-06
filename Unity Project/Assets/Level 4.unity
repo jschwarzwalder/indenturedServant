@@ -1477,7 +1477,7 @@ MonoBehaviour:
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
-  timeBetweenSpawn: 60
+  timeBetweenSpawn: 20
 --- !u!4 &951132955
 Transform:
   m_ObjectHideFlags: 0

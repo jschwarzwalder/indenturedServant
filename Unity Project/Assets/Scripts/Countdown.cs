@@ -16,6 +16,15 @@ public class Countdown : MonoBehaviour
 
     public void Start()
     {
+        GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+
+        GameManager gameManager = gameController.GetComponent<GameManager>();
+
+        if (gameManager.isSick)
+        {
+            Duration /= 2;
+        }
+
         if (IsCountingDown)
         {
             StartTimer();

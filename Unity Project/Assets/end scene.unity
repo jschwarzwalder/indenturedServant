@@ -280,7 +280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1174805151
 Prefab:
@@ -321,25 +321,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114533715440082402, guid: 490a2641feaa60345b74eaeb94933a31,
+        type: 2}
+      propertyPath: m_Text
+      value: "Impressive haul! Sadly you will never be able to sort enough fish. \n\nYour
+        employer controls the cost of food and your room and board, so no matter how
+        hard you work, you will never get out of debt, because they charge more than
+        you could possibly earn. \n\nThere are an estimated 20.9 Million people trapped
+        in similiar situations today.\n\nTo learn more about how you can help go to
+        EndSlaveryNow.org in a web browser"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490a2641feaa60345b74eaeb94933a31, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1174805152 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1440648963832214, guid: 490a2641feaa60345b74eaeb94933a31,
-    type: 2}
-  m_PrefabInternal: {fileID: 1174805151}
---- !u!114 &1174805153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1174805152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88e3e418f7280d489b32db88bf5f76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1252181560
 Prefab:
   m_ObjectHideFlags: 0
@@ -457,7 +451,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482055274
 GameObject:
@@ -519,7 +513,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847396433 stripped
 GameObject:
