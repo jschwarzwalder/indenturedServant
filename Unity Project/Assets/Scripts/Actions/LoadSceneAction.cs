@@ -15,13 +15,17 @@ public class LoadSceneAction : GameAction
        
 
         GameManager gameManager = gameManagerObject.GetComponent<GameManager>();
-       // gameManager.FishCollectedToday = 
+        gameManager.FishCollectedToday = 0;
        foreach (GameObject bucketObject in bucketsObjects)
        {
            FishSort bucket = bucketObject.GetComponent<FishSort>();
             gameManager.FishCollectedToday += (bucket.sorted_fish) * (bucket.fish_value);
         }
-
+        gameManager.FishCollectedTotal += gameManager.FishCollectedToday;
+        gameManager.DaysPlayed += 1;
+        gameManager.FishDebt -= gameManager.FishCollectedToday - gameManager.RoomAndBoard;
+       
+        
         SceneManager.LoadScene(targetScene);
 
     }
