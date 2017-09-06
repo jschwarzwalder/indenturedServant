@@ -2180,6 +2180,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2014878949 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
+  m_PrefabInternal: {fileID: 2014878948}
+--- !u!114 &2014878950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2014878949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1e3d25af4b1a64b925a39a5e1eca37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: Level 6
+--- !u!114 &2014878951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2014878949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f35f67238b79a4fae60fcc84dc4c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &2014878952
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2014878949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.037871502
+  m_Height: 0.25728428
+  m_Direction: 1
+  m_Center: {x: -0.0000000018626451, y: 0, z: 0.00000008009374}
 --- !u!1 &2018529205
 GameObject:
   m_ObjectHideFlags: 0
