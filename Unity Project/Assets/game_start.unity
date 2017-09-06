@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b9fcb5fc98100438c783a6ac1a1772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FishDebt: 10000
+  FishDebt: 1000
   FishCollectedTotal: 0
   FishCollectedToday: 0
   RoomAndBoard: 15
