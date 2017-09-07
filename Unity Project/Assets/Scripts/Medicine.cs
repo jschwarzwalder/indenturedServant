@@ -31,7 +31,7 @@ public class Medicine : MonoBehaviour {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
 
         GameManager gameManager = gameController.GetComponent<GameManager>();
-        gameManager.isSick = true;
+        gameManager.isSick = false;
 
     }
 }

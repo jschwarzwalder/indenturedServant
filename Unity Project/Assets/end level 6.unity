@@ -644,8 +644,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Crew report that a trash barge has overflowed\r\npolluting the nearby water.\n\nUnfortunately
     it seems the trash has started \nto get stuck in the fishing nets.\n\nYou will
-    need to ignore the trash while you sort fish.\n\nTouch the door to begin the next
-    day."
+    need to ignore the trash while you sort fish.\n\nAlso, you are still not feeling
+    well, so you must choose to\ndrink the medicine or touch the door to begin the
+    next day."
 --- !u!222 &430190745
 CanvasRenderer:
   m_ObjectHideFlags: 0
