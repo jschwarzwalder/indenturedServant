@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour {
         text.text += "Earned Today - $" + gameManager.FishCollectedToday + "\n\n";
         text.text += "Days so Far - " + gameManager.DaysPlayed + "\n\n";
         text.text += "\n\n";
-        text.text += "Remaining Debt - " + gameManager.FishDebt + "\n\n";
+        text.text += "Remaining Debt - $" + gameManager.FishDebt + "\n\n";
 
     }
 
