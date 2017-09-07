@@ -353,6 +353,11 @@ Prefab:
         you still have to pay room and board \neven if there wasn't enough work today.
         \n\nTouch the door when you are ready to begin your next day. "
       objectReference: {fileID: 0}
+    - target: {fileID: 224085085430759170, guid: 490a2641feaa60345b74eaeb94933a31,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490a2641feaa60345b74eaeb94933a31, type: 2}
   m_IsPrefabParent: 0

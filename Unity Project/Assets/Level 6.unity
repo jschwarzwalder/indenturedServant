@@ -1106,84 +1106,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b0f72d1cb1ce381468a45e9604348095, type: 2}
   m_PrefabInternal: {fileID: 1202265981}
---- !u!1001 &721361866
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.444
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.289
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859299350710908, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_Name
-      value: 'Trash Bucket '
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4848593923301494, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114029638266751072, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
-        type: 2}
-      propertyPath: m_Text
-      value: Trash
-      objectReference: {fileID: 0}
-    - target: {fileID: 114084911396166454, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
-        type: 2}
-      propertyPath: m_Text
-      value: Trash
-      objectReference: {fileID: 0}
-    - target: {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134844041140540, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114443124774559198, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: ccf4a86d3bfa71843bd3117e06ebcff3, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &747031831 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 98d89738379b58d4fa6366837b44232a, type: 2}
@@ -1465,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426d86cf441c3de4182dd5a70ef7e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 60
+  Duration: 90
   IsCountingDown: 1
   GameAction: {fileID: 898950000}
   Display: {fileID: 898949998}
@@ -1519,7 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6b45792eb72d845b456314ae509d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: end scene
+  targetScene: end level 6
 --- !u!4 &927291295 stripped
 Transform:
   m_PrefabParentObject: {fileID: 416034, guid: cb058a679d674ff498f44b806185b509, type: 2}
@@ -1614,7 +1536,7 @@ MonoBehaviour:
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
-  timeBetweenSpawn: 3
+  timeBetweenSpawn: 5
 --- !u!4 &951132955
 Transform:
   m_ObjectHideFlags: 0

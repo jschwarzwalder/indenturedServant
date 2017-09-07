@@ -642,15 +642,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The change in the weather is affecting your health
-
-
-    You can purchase medicine to help you feel better or
-
-    continue to work while you feel unwell.
-
-
-    Drink the medicine or touch the door to begin the next day.'
+  m_Text: "Crew report that a trash barge has overflowed\r\npolluting the nearby water.\n\nUnfortunately
+    it seems the trash has started \nto get stuck in the fishing nets.\n\nYou will
+    need to ignore the trash while you sort fish.\n\nTouch the door to begin the next
+    day."
 --- !u!222 &430190745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -876,6 +871,7 @@ Transform:
   - {fileID: 942735525}
   - {fileID: 1017947497}
   - {fileID: 223259114}
+  - {fileID: 2092828979}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1532,6 +1528,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114702894797264878, guid: 066278b45a168c140acdf21d59210e48,
+        type: 2}
+      propertyPath: targetScene
+      value: Level 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 066278b45a168c140acdf21d59210e48, type: 2}
   m_IsPrefabParent: 0
@@ -1594,8 +1595,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 2.4242814, y: -1.8161483, z: 2.1016407}
   m_LocalScale: {x: 20, y: 20, z: 20}
-  m_Children:
-  - {fileID: 2092828979}
+  m_Children: []
   m_Father: {fileID: 826715107}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2131,51 +2131,51 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1174805158}
+    m_TransformParent: {fileID: 826715107}
     m_Modifications:
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.4242814
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0291
+      value: -1.2341483
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.1016407
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00000003774895
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
-      propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
-      propertyPath: m_LocalRotation.w
+      propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
-      propertyPath: m_RootOrder
+      propertyPath: m_LocalRotation.z
+      value: 0.00000003774895
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43991dbc601468e44a784820f8dad169, type: 3}
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1e3d25af4b1a64b925a39a5e1eca37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: Level 6
+  targetScene: Level 7
 --- !u!114 &2014878951
 MonoBehaviour:
   m_ObjectHideFlags: 0

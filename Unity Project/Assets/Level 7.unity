@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426d86cf441c3de4182dd5a70ef7e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 30
+  Duration: 90
   IsCountingDown: 1
   GameAction: {fileID: 898950000}
   Display: {fileID: 898949998}
@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6b45792eb72d845b456314ae509d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: end level 4
+  targetScene: end level 7
 --- !u!4 &927291295 stripped
 Transform:
   m_PrefabParentObject: {fileID: 416034, guid: cb058a679d674ff498f44b806185b509, type: 2}
@@ -1477,7 +1477,23 @@ MonoBehaviour:
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
   - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
-  timeBetweenSpawn: 20
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1772381685689838, guid: 41620d2d2253a57448bc81299306b52f, type: 2}
+  - {fileID: 1595733154842138, guid: d59bf69471bddc043bff0856f77d11ee, type: 2}
+  - {fileID: 134206, guid: 87fc2712e3b8e6f4da11a3f82127936a, type: 2}
+  - {fileID: 184466, guid: e7450a67e5dc5d7449f13c634b20fad7, type: 2}
+  - {fileID: 1882787283596562, guid: f78c0e7afa37257498b4b13f5f4dd375, type: 2}
+  - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
+  - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
+  - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1882745113932956, guid: ae0ca93f27572a34c925cb49b5aca678, type: 2}
+  - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
+  - {fileID: 1591290675890438, guid: 6b9d251351eaf924393f717af7125938, type: 2}
+  timeBetweenSpawn: 3
 --- !u!4 &951132955
 Transform:
   m_ObjectHideFlags: 0
@@ -2241,7 +2257,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 478642, guid: b0047dd65ff208349bf3a5aaaeae24d0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.755
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 478642, guid: b0047dd65ff208349bf3a5aaaeae24d0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2249,7 +2265,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478642, guid: b0047dd65ff208349bf3a5aaaeae24d0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 478642, guid: b0047dd65ff208349bf3a5aaaeae24d0, type: 2}
       propertyPath: m_LocalRotation.x

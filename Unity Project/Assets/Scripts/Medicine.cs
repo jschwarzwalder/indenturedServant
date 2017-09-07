@@ -15,6 +15,8 @@ public class Medicine : MonoBehaviour {
 
 	    gameManager.isSick = true;
 
+	    gameManager.FishDebt += 100;
+
 
 
 	}
