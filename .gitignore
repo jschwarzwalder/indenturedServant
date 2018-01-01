@@ -31,3 +31,4 @@ sysinfo.txt
 *.unitypackage
 Assets/database_assetts/*
 Unity Project/Library/assetDatabase3
+*.lock

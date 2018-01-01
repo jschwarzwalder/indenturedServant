@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 #warning Upgrade NOTE: unity_Scale shader variable was removed; replaced 'unity_Scale.w' with '1.0'
 // Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
 // Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
@@ -130,7 +132,7 @@ Shader "RaginBear/Specular/Self-Illumin/rb_std_01" {
                 o.binormalDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 #ifndef LIGHTMAP_OFF
                     o.uvLM = v.texcoord1 * unity_LightmapST.xy + unity_LightmapST.zw;
                 #endif
@@ -306,7 +308,7 @@ Shader "RaginBear/Specular/Self-Illumin/rb_std_01" {
                 o.binormalDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
@@ -384,7 +386,7 @@ Shader "RaginBear/Specular/Self-Illumin/rb_std_01" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o;
                 o.uv0 = v.texcoord0;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 TRANSFER_SHADOW_COLLECTOR(o)
                 return o;
             }
@@ -429,7 +431,7 @@ Shader "RaginBear/Specular/Self-Illumin/rb_std_01" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o;
                 o.uv0 = v.texcoord0;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 TRANSFER_SHADOW_CASTER(o)
                 return o;
             }
