@@ -52,4 +52,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(FurthestEndScene);
 
     }       
+
+    public void DeleteData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
