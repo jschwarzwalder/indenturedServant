@@ -12,10 +12,12 @@ public class TextController : MonoBehaviour {
 	public AudioClip audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio9, audio10, audio11, audio12;
     public NVRHand LeftHand;
     public NVRHand RightHand;
+    public bool isStarted { get; set; }
+     
 
-	//private States myState;
-//	private int pageNumber = 0;
-	private string[] sentences = new string[] {
+    //private States myState;
+    //	private int pageNumber = 0;
+    private string[] sentences = new string[] {
 		"It another day…. Me hope it no rain.... Me never thought me be a fisherman. See me now! So far from me home in the small village where me born.", 
 		"Me local school closed, when me just a little pickney. Me parents put me in the private school. I go to the top of me class.", 
 		"I get home to find me papa lying real still like on the floor. Me rush him to the medic, but me miss the school day.",
@@ -33,48 +35,51 @@ public class TextController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//myState = States.pageNumber;
-	}
+        //myState = States.pageNumber;
+       
+    }
 
 	// Update is called once per frame
 	void Update ()
 	{
-		AudioClip[] audioFiles = {
-			audio1,
-			audio2,
-			audio3,
-			audio4,
-			audio5,
-			audio6,
-			audio7,
-			audio8,
-			audio9,
-			audio10,
-			audio11,
-			audio12
-		};
+        AudioClip[] audioFiles = {
+            audio1,
+            audio2,
+            audio3,
+            audio4,
+            audio5,
+            audio6,
+            audio7,
+            audio8,
+            audio9,
+            audio10,
+            audio11,
+            audio12
+        };
 
-		AudioSource audio = GetComponent<AudioSource> ();
-		//print (myState);
-		if (Input.GetKeyDown (KeyCode.RightArrow) || (storyLine != -1 && !audio.isPlaying) 
-            || (LeftHand.IsCurrentlyTracked && (LeftHand.HoldButtonDown || LeftHand.UseButtonDown)) 
-            || (RightHand.IsCurrentlyTracked && (RightHand.HoldButtonDown || RightHand.UseButtonDown)))
-			/*OVRInput.GetDown (OVRInput.Button.One) || OVRInput.GetDown (OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)*/
-		{
-			storyLine += 1;
+        if (isStarted) {
 
-			if(storyLine < sentences.Length) {
-				audio.clip = audioFiles [storyLine];
-				audio.Play();
-				textBox.text = sentences[storyLine];
-				//audio.clip = "Narration_" + storyLine;
-			}
-			else {
-				LoadNextScene();
-			} 
-		}
+            AudioSource audio = GetComponent<AudioSource>();
+            //print (myState);
+            if (Input.GetKeyDown(KeyCode.RightArrow) || (!audio.isPlaying)
+                || (LeftHand.IsCurrentlyTracked && (LeftHand.HoldButtonDown || LeftHand.UseButtonDown))
+                || (RightHand.IsCurrentlyTracked && (RightHand.HoldButtonDown || RightHand.UseButtonDown)))
+            /*OVRInput.GetDown (OVRInput.Button.One) || OVRInput.GetDown (OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)*/
+            {
+                storyLine += 1;
 
+                if (storyLine < sentences.Length) {
+                    audio.clip = audioFiles[storyLine];
+                    audio.Play();
+                    textBox.text = sentences[storyLine];
+                    //audio.clip = "Narration_" + storyLine;
+                }
+                else {
+                    LoadNextScene();
+                }
+            }
 
+        }
 	}
 
 	public void LoadNextScene ()
@@ -84,6 +89,11 @@ public class TextController : MonoBehaviour {
 
 
 	}
+
+    public void BeginGame()
+    {
+        
+    }
 	}
 
 

@@ -24,8 +24,8 @@ public class LoadSceneAction : GameAction
         gameManager.FishCollectedTotal += gameManager.FishCollectedToday;
         gameManager.DaysPlayed += 1;
         gameManager.FishDebt -= gameManager.FishCollectedToday - gameManager.RoomAndBoard;
-       
-        
+
+        gameManager.SaveData(targetScene);
         SceneManager.LoadScene(targetScene);
 
     }
