@@ -581,7 +581,7 @@ PlayerSettings:
   webGLUseWasm: 0
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
-    1: NVR_Oculus
+    1: NVR_SteamVR
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 0
