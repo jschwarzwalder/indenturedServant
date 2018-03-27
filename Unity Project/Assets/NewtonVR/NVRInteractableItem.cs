@@ -8,12 +8,10 @@ namespace NewtonVR
 {
     public class NVRInteractableItem : NVRInteractable
     {
-        private const float MaxVelocityChange = 10f;
-        private const float MaxAngularVelocityChange = 20f;
-        private const float VelocityMagic = 6000f;
-        private const float AngularVelocityMagic = 50f;
-
-        public bool DisablePhysicalMaterialsOnAttach = true;
+        protected const float MaxVelocityChange = 10f;
+        protected const float MaxAngularVelocityChange = 20f;
+        protected const float VelocityMagic = 6000f;
+        protected const float AngularVelocityMagic = 50f;
 
         [Tooltip("If you have a specific point you'd like the object held at, create a transform there and set it to this variable")]
         public Transform InteractionPoint;
@@ -26,7 +24,7 @@ namespace NewtonVR
         public UnityEvent OnBeginInteraction;
         public UnityEvent OnEndInteraction;
 
-        protected Transform PickupTransform;
+        protected Dictionary<NVRHand, Transform> PickupTransforms = new Dictionary<NVRHand, Transform>();
 
         protected Vector3 ExternalVelocity;
         protected Vector3 ExternalAngularVelocity;
@@ -50,6 +48,12 @@ namespace NewtonVR
         protected override void Start()
         {
             base.Start();
+
+            if (NVRPlayer.Instance.VelocityHistorySteps > 0)
+            {
+                VelocityHistory = new Vector3?[NVRPlayer.Instance.VelocityHistorySteps];
+                AngularVelocityHistory = new Vector3?[NVRPlayer.Instance.VelocityHistorySteps];
+            }
         }
 
         protected virtual void FixedUpdate()
@@ -67,27 +71,110 @@ namespace NewtonVR
             AddExternalVelocities();
         }
 
+        protected virtual void GetTargetValues(out Vector3 targetHandPosition, out Quaternion targetHandRotation, out Vector3 targetItemPosition, out Quaternion targetItemRotation)
+        {
+            if (AttachedHands.Count == 1) //faster path if only one hand, which is the standard scenario
+            {
+                NVRHand hand = AttachedHands[0];
+
+                if (InteractionPoint != null)
+                {
+                    targetItemPosition = InteractionPoint.position;
+                    targetItemRotation = InteractionPoint.rotation;
+
+                    targetHandPosition = hand.transform.position;
+                    targetHandRotation = hand.transform.rotation;
+                }
+                else
+                {
+                    targetItemPosition = this.transform.position;
+                    targetItemRotation = this.transform.rotation;
+
+                    targetHandPosition = PickupTransforms[hand].position;
+                    targetHandRotation = PickupTransforms[hand].rotation;
+                }
+            }
+            else
+            {
+                Vector3 cumulativeItemVector = Vector3.zero;
+                Vector4 cumulativeItemRotation = Vector4.zero;
+                Quaternion? firstItemRotation = null;
+                targetItemRotation = Quaternion.identity;
+
+                Vector3 cumulativeHandVector = Vector3.zero;
+                Vector4 cumulativeHandRotation = Vector4.zero;
+                Quaternion? firstHandRotation = null;
+                targetHandRotation = Quaternion.identity;
+
+                for (int handIndex = 0; handIndex < AttachedHands.Count; handIndex++)
+                {
+                    NVRHand hand = AttachedHands[handIndex];
+
+                    if (InteractionPoint != null && handIndex == 0)
+                    {
+                        targetItemRotation = InteractionPoint.rotation;
+                        cumulativeItemVector += InteractionPoint.position;
+
+                        targetHandRotation = hand.transform.rotation;
+                        cumulativeHandVector += hand.transform.position;
+                    }
+                    else
+                    {
+                        targetItemRotation = this.transform.rotation;
+                        cumulativeItemVector += this.transform.position;
+
+                        targetHandRotation = PickupTransforms[hand].rotation;
+                        cumulativeHandVector += PickupTransforms[hand].position;
+                    }
+
+                    if (firstItemRotation == null)
+                    {
+                        firstItemRotation = targetItemRotation;
+                    }
+                    if (firstHandRotation == null)
+                    {
+                        firstHandRotation = targetHandRotation;
+                    }
+
+                    targetItemRotation = NVRHelpers.AverageQuaternion(ref cumulativeItemRotation, targetItemRotation, firstItemRotation.Value, handIndex);
+                    targetHandRotation = NVRHelpers.AverageQuaternion(ref cumulativeHandRotation, targetHandRotation, firstHandRotation.Value, handIndex);
+                }
+
+                targetItemPosition = cumulativeItemVector / AttachedHands.Count;
+                targetHandPosition = cumulativeHandVector / AttachedHands.Count;
+            }
+        }
+
         protected virtual void UpdateVelocities()
         {
+            Vector3 targetItemPosition;
+            Quaternion targetItemRotation;
+
+            Vector3 targetHandPosition;
+            Quaternion targetHandRotation;
+
+            GetTargetValues(out targetHandPosition, out targetHandRotation, out targetItemPosition, out targetItemRotation);
+
+
             float velocityMagic = VelocityMagic / (Time.deltaTime / NVRPlayer.NewtonVRExpectedDeltaTime);
             float angularVelocityMagic = AngularVelocityMagic / (Time.deltaTime / NVRPlayer.NewtonVRExpectedDeltaTime);
 
-            Quaternion rotationDelta;
             Vector3 positionDelta;
+            Quaternion rotationDelta;
 
             float angle;
             Vector3 axis;
 
-            if (InteractionPoint != null || PickupTransform == null) //PickupTransform should only be null
+            positionDelta = (targetHandPosition - targetItemPosition);
+            rotationDelta = targetHandRotation * Quaternion.Inverse(targetItemRotation);
+
+
+            Vector3 velocityTarget = (positionDelta * velocityMagic) * Time.deltaTime;
+            if (float.IsNaN(velocityTarget.x) == false)
             {
-                rotationDelta = AttachedHand.transform.rotation * Quaternion.Inverse(InteractionPoint.rotation);
-                positionDelta = (AttachedHand.transform.position - InteractionPoint.position);
+                this.Rigidbody.velocity = Vector3.MoveTowards(this.Rigidbody.velocity, velocityTarget, MaxVelocityChange);
             }
-            else
-            {
-                rotationDelta = PickupTransform.rotation * Quaternion.Inverse(this.transform.rotation);
-                positionDelta = (PickupTransform.position - this.transform.position);
-            }
+
 
             rotationDelta.ToAngleAxis(out angle, out axis);
 
@@ -102,12 +189,6 @@ namespace NewtonVR
                     angularTarget = (angularTarget * angularVelocityMagic) * Time.deltaTime;
                     this.Rigidbody.angularVelocity = Vector3.MoveTowards(this.Rigidbody.angularVelocity, angularTarget, MaxAngularVelocityChange);
                 }
-            }
-
-            Vector3 velocityTarget = (positionDelta * velocityMagic) * Time.deltaTime;
-            if (float.IsNaN(velocityTarget.x) == false)
-            {
-                this.Rigidbody.velocity = Vector3.MoveTowards(this.Rigidbody.velocity, velocityTarget, MaxVelocityChange);
             }
 
 
@@ -172,15 +253,13 @@ namespace NewtonVR
             Rigidbody.drag = 0;
             Rigidbody.angularDrag = 0.05f;
 
-            if (DisablePhysicalMaterialsOnAttach == true)
-            {
-                DisablePhysicalMaterials();
-            }
+            DisablePhysicalMaterials();
 
-            PickupTransform = new GameObject(string.Format("[{0}] NVRPickupTransform", this.gameObject.name)).transform;
-            PickupTransform.parent = hand.transform;
-            PickupTransform.position = this.transform.position;
-            PickupTransform.rotation = this.transform.rotation;
+            Transform pickupTransform = new GameObject(string.Format("[{0}] NVRPickupTransform", this.gameObject.name)).transform;
+            pickupTransform.parent = hand.transform;
+            pickupTransform.position = this.transform.position;
+            pickupTransform.rotation = this.transform.rotation;
+            PickupTransforms.Add(hand, pickupTransform);
 
             ResetVelocityHistory();
 
@@ -190,29 +269,44 @@ namespace NewtonVR
             }
         }
 
-        public override void EndInteraction()
+        public override void EndInteraction(NVRHand hand)
         {
-            base.EndInteraction();
+            base.EndInteraction(hand);
 
-            Rigidbody.drag = StartingDrag;
-            Rigidbody.angularDrag = StartingAngularDrag;
-
-            if (PickupTransform != null)
+            if (hand == null)
             {
-                Destroy(PickupTransform.gameObject);
+                var pickupTransformsEnumerator = PickupTransforms.GetEnumerator();
+                while (pickupTransformsEnumerator.MoveNext())
+                {
+                    var pickupTransform = pickupTransformsEnumerator.Current;
+                    if (pickupTransform.Value != null)
+                    {
+                        Destroy(pickupTransform.Value.gameObject);
+                    }
+                }
+
+                PickupTransforms.Clear();
+            }
+            else if (PickupTransforms.ContainsKey(hand))
+            {
+                Destroy(PickupTransforms[hand].gameObject);
+                PickupTransforms.Remove(hand);
             }
 
-            if (DisablePhysicalMaterialsOnAttach == true)
+            if (PickupTransforms.Count == 0)
             {
+                Rigidbody.drag = StartingDrag;
+                Rigidbody.angularDrag = StartingAngularDrag;
+
                 EnablePhysicalMaterials();
-            }
 
-            ApplyVelocityHistory();
-            ResetVelocityHistory();
+                ApplyVelocityHistory();
+                ResetVelocityHistory();
 
-            if (OnEndInteraction != null)
-            {
-                OnEndInteraction.Invoke();
+                if (OnEndInteraction != null)
+                {
+                    OnEndInteraction.Invoke();
+                }
             }
         }
 
@@ -228,7 +322,7 @@ namespace NewtonVR
 
         public override void ResetInteractable()
         {
-            EndInteraction();
+            EndInteraction(null);
             base.ResetInteractable();
         }
 
@@ -272,12 +366,12 @@ namespace NewtonVR
 
         protected virtual void ResetVelocityHistory()
         {
-            if (NVRPlayer.Instance.VelocityHistorySteps > 0)
-            {
-                CurrentVelocityHistoryStep = 0;
+            CurrentVelocityHistoryStep = 0;
 
-                VelocityHistory = new Vector3?[NVRPlayer.Instance.VelocityHistorySteps];
-                AngularVelocityHistory = new Vector3?[NVRPlayer.Instance.VelocityHistorySteps];
+            if (VelocityHistory != null && VelocityHistory.Length > 0)
+            {
+                VelocityHistory = new Vector3?[VelocityHistory.Length];
+                AngularVelocityHistory = new Vector3?[VelocityHistory.Length];
             }
         }
 
@@ -342,18 +436,15 @@ namespace NewtonVR
         {
             base.UpdateColliders();
 
-            if (DisablePhysicalMaterialsOnAttach == true)
+            for (int colliderIndex = 0; colliderIndex < Colliders.Length; colliderIndex++)
             {
-                for (int colliderIndex = 0; colliderIndex < Colliders.Length; colliderIndex++)
+                if (MaterialCache.ContainsKey(Colliders[colliderIndex]) == false)
                 {
-                    if (MaterialCache.ContainsKey(Colliders[colliderIndex]) == false)
-                    {
-                        MaterialCache.Add(Colliders[colliderIndex], Colliders[colliderIndex].sharedMaterial);
+                    MaterialCache.Add(Colliders[colliderIndex], Colliders[colliderIndex].sharedMaterial);
 
-                        if (IsAttached == true)
-                        {
-                            Colliders[colliderIndex].sharedMaterial = null;
-                        }
+                    if (IsAttached == true)
+                    {
+                        Colliders[colliderIndex].sharedMaterial = null;
                     }
                 }
             }

@@ -65,8 +65,8 @@ namespace NewtonVR
         [HideInInspector]
         public NVRPhysicalController PhysicalController;
 
-        private Collider[] GhostColliders;
-        private Renderer[] GhostRenderers;
+        protected Collider[] GhostColliders;
+        protected Renderer[] GhostRenderers;
 
         private NVRInputDevice InputDevice;
 
@@ -134,7 +134,6 @@ namespace NewtonVR
             }
         }
 
-
         public virtual void PreInitialize(NVRPlayer player)
         {
             Player = player;
@@ -187,6 +186,28 @@ namespace NewtonVR
             else if (Player.CurrentIntegrationType == NVRSDKIntegrations.SteamVR)
             {
                 InputDevice = this.gameObject.AddComponent<NVRSteamVRInputDevice>();
+
+                if (Player.OverrideSteamVR == true)
+                {
+                    if (IsLeft)
+                    {
+                        CustomModel = Player.OverrideSteamVRLeftHand;
+                        CustomPhysicalColliders = Player.OverrideSteamVRLeftHandPhysicalColliders;
+                    }
+                    else if (IsRight)
+                    {
+                        CustomModel = Player.OverrideSteamVRRightHand;
+                        CustomPhysicalColliders = Player.OverrideSteamVRRightHandPhysicalColliders;
+                    }
+                    else
+                    {
+                        Debug.LogError("[NewtonVR] Error: Unknown hand for SteamVR model override.");
+                    }
+                }
+            }
+            else if (Player.CurrentIntegrationType == NVRSDKIntegrations.WindowsMR)
+            {
+                InputDevice = this.gameObject.AddComponent<NVRWindowsMRInput>();
 
                 if (Player.OverrideSteamVR == true)
                 {
@@ -275,6 +296,14 @@ namespace NewtonVR
                     }
                 }
             }
+
+            if (InputDevice != null && IsInteracting == false && IsHovering == true)
+            {
+                if (Player.VibrateOnHover == true)
+                {
+                    InputDevice.TriggerHapticPulse(100);
+                }
+            }
         }
 
         protected void UpdateButtonStates()
@@ -340,6 +369,7 @@ namespace NewtonVR
             else if (CurrentInteractionStyle == InterationStyle.ByScript)
             {
                 //this is handled by user customized scripts.
+               
             }
 
             if (IsInteracting == true)
@@ -532,14 +562,6 @@ namespace NewtonVR
 
             if (EstimationSampleIndex >= LastPositions.Length)
                 EstimationSampleIndex = 0;
-
-            if (InputDevice != null && IsInteracting == false && IsHovering == true)
-            {
-                if (Player.VibrateOnHover == true)
-                {
-                    InputDevice.TriggerHapticPulse(100);
-                }
-            }
         }
 
         public virtual void BeginInteraction(NVRInteractable interactable)
@@ -548,7 +570,10 @@ namespace NewtonVR
             {
                 if (interactable.AttachedHand != null)
                 {
-                    interactable.AttachedHand.EndInteraction(null);
+                    if (interactable.AllowTwoHanded == false)
+                    {
+                        interactable.AttachedHand.EndInteraction(null);
+                    }
                 }
 
                 CurrentlyInteracting = interactable;
@@ -568,7 +593,7 @@ namespace NewtonVR
 
             if (CurrentlyInteracting != null)
             {
-                CurrentlyInteracting.EndInteraction();
+                CurrentlyInteracting.EndInteraction(this);
 
                 if (OnEndInteraction != null)
                 {
@@ -592,19 +617,21 @@ namespace NewtonVR
             NVRInteractable closest = null;
             float closestDistance = float.MaxValue;
 
-            foreach (var hovering in CurrentlyHoveringOver)
-            {
-                if (hovering.Key == null)
-                    continue;
+			foreach(var collider in GhostColliders)
+			{
+	            foreach (var hovering in CurrentlyHoveringOver)
+	            {
+	                if (hovering.Key == null)
+	                    continue;
 
-                float distance = Vector3.Distance(this.transform.position, hovering.Key.transform.position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closest = hovering.Key;
-                }
-            }
-
+	                float distance = Vector3.Distance(collider.transform.position, hovering.Key.transform.position);
+	                if (distance < closestDistance)
+	                {
+	                    closestDistance = distance;
+	                    closest = hovering.Key;
+	                }
+	            }
+			}
             if (closest != null)
             {
                 BeginInteraction(closest);
@@ -683,7 +710,7 @@ namespace NewtonVR
                 CurrentlyHoveringOver.Remove(interactable);
         }
 
-        private void SetVisibility(VisibilityLevel visibility)
+        protected void SetVisibility(VisibilityLevel visibility)
         {
             if (CurrentVisibility != visibility)
             {
@@ -699,11 +726,6 @@ namespace NewtonVR
                         for (int index = 0; index < GhostRenderers.Length; index++)
                         {
                             GhostRenderers[index].enabled = false;
-                        }
-
-                        for (int index = 0; index < GhostColliders.Length; index++)
-                        {
-                            GhostColliders[index].enabled = false;
                         }
                     }
                 }
@@ -765,7 +787,10 @@ namespace NewtonVR
                 RenderModel = GameObject.Instantiate(CustomModel);
 
                 RenderModel.transform.parent = this.transform;
-                RenderModel.transform.localScale = RenderModel.transform.localScale;
+                // there was a bug here. The sympton we have: When we modify the scale of the NVRPlayer on the scene to 6, the result is a tiny hand 6 times smaller than it should.
+                // also, the previous line had no effect on the localScale, so it must be buggy.
+                // This change works fine in my project
+                RenderModel.transform.localScale = CustomModel.transform.localScale;
                 RenderModel.transform.localPosition = Vector3.zero;
                 RenderModel.transform.localRotation = Quaternion.identity;
             }

@@ -71,9 +71,9 @@ namespace NewtonVR
             PickupTransform.rotation = this.transform.rotation;
         }
 
-        public override void EndInteraction()
+        public override void EndInteraction(NVRHand hand)
         {
-            base.EndInteraction();
+            base.EndInteraction(hand);
 
             if (PickupTransform != null)
                 Destroy(PickupTransform.gameObject);
@@ -82,6 +82,12 @@ namespace NewtonVR
         protected Vector3 ProjectVelocityOnPath(Vector3 velocity, Vector3 path)
         {
             return Vector3.Project(velocity, path);
+        }
+
+        public void SetValue(float newValue)
+        {
+            CurrentValue = newValue;
+            this.transform.position = Vector3.Lerp(StartPoint.position, EndPoint.position, CurrentValue);
         }
     }
 }
