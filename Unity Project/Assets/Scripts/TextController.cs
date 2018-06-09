@@ -61,6 +61,8 @@ public class TextController : MonoBehaviour {
 
             AudioSource audio = GetComponent<AudioSource>();
             //print (myState);
+            Debug.Log("Left Hand: " + LeftHand);
+            Debug.Log("Right Hand: " + RightHand);
             if (Input.GetKeyDown(KeyCode.RightArrow) || (!audio.isPlaying)
                 || (LeftHand.IsCurrentlyTracked && (LeftHand.HoldButtonDown || LeftHand.UseButtonDown))
                 || (RightHand.IsCurrentlyTracked && (RightHand.HoldButtonDown || RightHand.UseButtonDown)))

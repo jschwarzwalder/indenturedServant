@@ -15,13 +15,9 @@ public class SelectLevel : MonoBehaviour {
 
         //Listen for key press
 
-        //if r, go to game home
-        if (Input.GetKeyDown("r")) {
-            SceneManager.LoadScene(0);
-        }
-        
+               
         //if 1-9 go to fish sorting level 1 to 9 or 0 will go to level 10
-        else if (Input.GetKeyDown("1")) {
+        if (Input.GetKeyDown("1")) {
             SceneManager.LoadScene("Level 1");
         }
 

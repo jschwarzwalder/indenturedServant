@@ -11,20 +11,48 @@ public class GameManager : MonoBehaviour
     public int RoomAndBoard;
     public int DaysPlayed;
     public bool isSick;
-
+    private int intialFishDebt;
+    private int intialRoomAndBoard;
+    public AudioSource endLevelBuzzer;
+    //private static GameManager instance;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    DontDestroyOnLoad(gameObject);
 	    isSick = false;
+        intialFishDebt = FishDebt;
+        intialRoomAndBoard = RoomAndBoard;
+        //if (instance)
+        //{
+        //    GameObject.Destroy(this);
+        //} else
+        //{
+        //    instance = this;
+        //}
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //if r, go to game home
+        if (Input.GetKeyDown("r"))
+        {
+            
+            SceneManager.LoadScene(0);
+            DeleteData();
+            GameObject.Destroy(gameObject);
+            //DaysPlayed = 0;
+            //FishCollectedToday = 0;
+            //FishCollectedTotal = 0;
+            //RoomAndBoard = intialRoomAndBoard;
+            //FishDebt = intialFishDebt;
+            //isSick = false;
+            
+        }
+
+    }
 
     //save game progress
     public void SaveData(string FurthestEndScene)

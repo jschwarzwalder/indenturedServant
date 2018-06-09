@@ -5,47 +5,72 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/game_start.unity
+    guid: f2423351b2e71e84e8eb7d820a0f4b52
+  - enabled: 1
+    path: Assets/game_start_with_platform.unity
+    guid: 5cbd17822d2d6594a87ee608b4f9baaa
   - enabled: 0
     path: Assets/game_screen.unity
+    guid: ba6f85972d11c584796ca0c412d7431e
   - enabled: 1
     path: Assets/Level 1.unity
+    guid: 4f55e60ae67ed02478ebb675226a7dd5
   - enabled: 1
     path: Assets/end level 1.unity
+    guid: 55ab6c16645355e4fa841770552e716c
   - enabled: 1
     path: Assets/Level 2.unity
+    guid: 771632b896e41a24a905cce1e68f39af
   - enabled: 1
     path: Assets/end level 2.unity
+    guid: 939916b444b38e843a263b37ad8b2640
   - enabled: 1
     path: Assets/Level 3.unity
+    guid: 33c037a708c7d374991b22fcc6e16601
   - enabled: 1
     path: Assets/end level 3.unity
+    guid: a351ef71ab1edca4a93a939d47e04dad
   - enabled: 1
     path: Assets/Level 4.unity
+    guid: 8538e6e422431d74395a709c6c422ae7
   - enabled: 1
     path: Assets/end level 4.unity
+    guid: 465bd18aa90381b4eb844ae9f747f34b
   - enabled: 1
     path: Assets/Level 5.unity
+    guid: 8777e096309a02343b7d14669fbfd9b9
   - enabled: 1
     path: Assets/end level 5.unity
+    guid: 5bbdf6174a7f4cb4784862e3c1050ac5
   - enabled: 1
     path: Assets/Level 6.unity
+    guid: f7901e067a8045d42bcc561267a512d1
   - enabled: 1
     path: Assets/end level 6.unity
+    guid: 543cd23b3f521ac4a8f455f3f7018d6b
   - enabled: 1
     path: Assets/Level 7.unity
+    guid: dd5b180f8eb7c3c4e927f3749a2633e5
   - enabled: 1
     path: Assets/end level 7.unity
+    guid: 2a73b92d9b57c76469f8647cfb14735f
   - enabled: 1
     path: Assets/Level 8.unity
+    guid: ba5444460b164dc4980eb1f168ab3800
   - enabled: 1
     path: Assets/end level 8.unity
+    guid: 53211bd6ba3671e499a87d8335c87029
   - enabled: 1
     path: Assets/Level 9.unity
+    guid: 5ed900a08b8cf7b46accd5280f34e661
   - enabled: 1
     path: Assets/end level 9.unity
+    guid: 0a76377a7933fbf4990a027dba034cff
   - enabled: 1
     path: Assets/Level 10.unity
+    guid: e40273a6bfcd4734594850f77670aacb
   - enabled: 1
     path: Assets/end scene.unity
+    guid: 4b7d665854ed8df4cb489a8f1f3ea02b

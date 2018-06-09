@@ -13,6 +13,9 @@ public class Countdown : MonoBehaviour
     public bool IsCountingDown = false;
     public GameAction GameAction;
     public Text Display;
+    AudioSource endLevelBuzzer;
+
+
 
     public void Start()
     {
@@ -29,6 +32,8 @@ public class Countdown : MonoBehaviour
         {
             StartTimer();
         }
+
+        endLevelBuzzer = gameManager.endLevelBuzzer;
     }
 
     public void StartTimer()
@@ -45,11 +50,13 @@ public class Countdown : MonoBehaviour
 
             if (timeRemaining <= 0)
             {
+                endLevelBuzzer.Play();
                 timeRemaining = 0;
                 IsCountingDown = false;
                 if (GameAction)
                 {
                     GameAction.DoAction();
+
                 }
             }
 
