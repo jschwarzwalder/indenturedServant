@@ -1,120 +1,142 @@
-# Indentured Servant — VR Game Jam / Social Justice Game Project
+# Indentured Servant — VR Social Impact Experience
 
 ## Overview
-**Indentured Servant** is a VR narrative experience created during the *Social Justice Game Jam*, focused on raising awareness of bonded labor and exploitative labor systems through interactive storytelling.
+**Indentured Servant** is a VR narrative experience that explores constrained labor systems through embodied interaction design.
 
-The project was designed as a short-form immersive simulation where players experience constrained, repetitive labor tasks in a VR environment, emphasizing emotional and systemic impact through embodiment.
+The project uses gameplay systems rather than exposition to simulate economic pressure, limited agency, and structured dependency within a closed environment.
+
+It was created during the **Social Justice Game Jam** and later expanded into a playable VR experience with public demos and a Steam release.
+
+---
+
+## Playable Builds
+- Steam Release: https://store.steampowered.com/app/847790/Indentured_Servant/
+- Itch.io Build: https://indenturedservant.itch.io/indentured-servant
+- Source Repository: https://github.com/jschwarzwalder/indenturedServant
 
 ---
 
 ## Context
-This project was created for the **Social Justice Game Jam** (2017), a 48-hour hackathon focused on building games addressing civil legal aid and social justice issues such as debt, wage theft, foreclosure, and labor exploitation.
+The project was created for the **Social Justice Game Jam**, with a focus on civil legal aid, labor systems, and social equity themes.
 
-The theme encouraged projects that promote awareness and education around systemic inequities.
+The initial prototype was developed during a 48-hour hackathon, and I later expanded it through iterative VR testing and public demonstrations.
+
+The central design question:
+
+> How can VR interaction systems communicate structural inequality through experience rather than narrative explanation?
 
 ---
 
 ## My Role
-- VR Developer  
-- Gameplay Designer  
-- Systems / Interaction Designer  
-- Technical Implementation (Unity + C#)
+- VR Developer
+- Interaction Designer
+- UX Researcher (observational testing during demos)
+- Systems Designer
+- Unity Developer (C#)
 
 ---
 
 ## Development Details
-Built in 48 hours using:
+Built using:
 - Unity
 - C#
-- Oculus Touch / VR interaction systems
+- Oculus SDK
+- HTC Vive (primary post-jam development hardware)
 - NewtonVR (interaction framework)
 
-After the game jam, I continued development and testing using an HTC Vive, which became the primary hardware platform for refining interaction design, comfort, and locomotion behavior.
-
-The project focused on:
-- Embodied interaction design in VR
-- Constraint-based gameplay systems
-- Rapid prototyping under game jam conditions
-- Iterative VR UX testing and refinement on real hardware
-- Early-stage immersive experience design
+After the game jam, I continued development using an **HTC Vive as the primary testing platform**, focusing on:
+- interaction refinement
+- physical comfort in VR
+- pacing and task flow adjustments
+- iterative UX testing based on real user behavior
 
 ---
 
-## Core Experience
-Players perform repetitive sorting and interaction tasks representing constrained labor conditions. The experience is intentionally designed to:
+## Core Game Design & Systems
 
-- Create physical repetition and fatigue in VR interaction loops  
-- Encourage reflection on labor systems and agency  
-- Use minimal narrative exposition and rely on embodied experience  
-- Demonstrate how VR can communicate systemic social issues
+### Early Game: Onboarding & Agency
+The first stages were designed to establish:
+- Core fish-sorting mechanics
+- Basic VR interaction patterns
+- Early player success and reinforcement loops
 
----
-
-## Demos & Community Showcases
-This project was publicly demonstrated at:
-
-- Eastside VR Meetup  
-  https://www.meetup.com/eastside-virtual-reality-meetup/
-
-- Seattle VR / AR Meetup  
-  https://www.meetup.com/seattle-vr-demos-experiences/
-
-- Pierce County MakerFest  
-  https://web.archive.org/web/20181128021238/http://stem.pcls.us/makerfest/
+Players quickly gain confidence and experience mastery through repetition and accuracy-based feedback.
 
 ---
 
-## Origin Event
-Created during:
-- Social Justice Game Jam (Eventbrite)  
-  https://www.eventbrite.com/e/social-justice-game-jam-tickets-28235959515  
-- Jam Theme: Civil legal aid, labor rights, and social justice systems  
-- Format: 48-hour collaborative build sprint
+### Core System: Closed Economic Loop
+The experience transitions into a constrained economic simulation:
+
+- Players earn credits for sorting fish correctly
+- Living costs (room + board) are continuously deducted
+- Employer controls pricing of food and housing
+- Debt accumulation is structurally unavoidable
+
+Even optimal performance does not allow the player to escape debt.
 
 ---
 
-## Playable Version
-- Itch.io Build: https://indenturedservant.itch.io/indentured-servant  
-- Steam Release: https://store.steampowered.com/app/847790/Indentured_Servant/  
+### Constraint Systems
+Additional systems were introduced to reinforce systemic pressure:
+
+- **Illness system:** Players must purchase expensive medicine or lose working time
+- **Environmental degradation:** “Trash” fish appear during poor conditions
+- **Time pressure:** Reduced working time increases debt accumulation rate
+
+These systems create compounding constraints rather than isolated challenges.
 
 ---
 
-## Key Learnings
-- Designing meaningful VR interaction under extreme time constraints  
-- Using embodiment to communicate systems-level critique  
-- Rapid prototyping in immersive environments  
-- Balancing gameplay with emotional and ethical framing  
-- Early exploration of VR accessibility and user comfort constraints  
+## UX Observations (Live Demos)
+
+During live VR demos, several consistent behaviors emerged:
+
+- - Players physically engaged with the environment in unexpected ways, including kneeling, crouching, and rolling on the floor to reach fish placed behind virtual obstacles within the VR space
+- Early gameplay produced a strong sense of mastery and enjoyment
+- As constraints accumulated, players shifted toward urgency and frustration
+- Many attempted to “optimize” their way out of debt, despite structural impossibility
+
+This created a deliberate emotional transition from:
+> control → constraint → systemic frustration
 
 ---
 
-## Related Work / Context
-This project sits at the intersection of:
-- Social VR storytelling  
-- Experimental game design  
-- Immersive UX research  
-- Social impact game development  
+## Narrative Framing
+
+The experience is grounded in themes inspired by:
+- Company towns
+- Debt bondage systems
+- Labor environments with restricted mobility
+
+The player assumes the role of a worker whose passport is confiscated and who is isolated within a controlled environment (a boat-based worksite).
+
+The employer controls:
+- wages
+- living costs
+- food pricing
+- debt structure
+
+This creates a closed-loop system where exit is structurally impossible.
 
 ---
 
-## Skills Demonstrated
-Unity • C# • VR Interaction Design • Game Design • Rapid Prototyping • UX Thinking • Systems Design • Social Impact Games
+## Educational Use & Reception
+
+The project was later selected by an educator for classroom use in VR learning discussions.
+
+Student feedback included questioning whether the experience was “fun,” which led to a broader classroom discussion about the purpose of games and interactive media.
+
+The instructor noted that students engaged with the idea that:
+
+> games can serve purposes beyond entertainment, including education, reflection, and systems awareness
 
 ---
 
-## User Feedback / Reception
+## Steam User Feedback
 
-Following release on Steam, **Indentured Servant** received player feedback highlighting its emotional tone, VR interaction design, and short-form immersive experience.
+Following release on Steam, *Indentured Servant* received consistent qualitative user feedback focused on its emotional impact, experimental structure, and use of VR mechanics to communicate systems-based themes.
 
-Common themes in player responses included:
-
-- Strong emotional response to the embodied labor simulation mechanics  
-- Recognition of the project’s experimental and social impact focus  
-- Interest in the use of VR to communicate systemic and real-world issues  
-- Feedback on interaction pacing and physical repetition in VR tasks  
-- Appreciation for the project as a short-form, thought-provoking experience rather than traditional gameplay
-
-Selected player reflections (Steam reviews):
+Selected public Steam review excerpts:
 
 > "A short but powerful experience that made me think differently about VR interaction design."
 
@@ -124,9 +146,37 @@ Selected player reflections (Steam reviews):
 
 > "Interesting use of VR mechanics to convey a serious theme."
 
-These responses are excerpted from public Steam user reviews and reflect subjective player impressions of the experience at time of release.
+These responses reflect varied interpretations of the experience, particularly around the tension between traditional gameplay expectations and systems-driven social commentary.
 
 ---
 
-## Notes
-This project originated as a 48-hour hackathon prototype and was later expanded into public demos and a Steam release. It represents early experimental work in VR storytelling and social systems design.
+## Demos & Public Showcases
+- Eastside VR Meetup: https://www.meetup.com/eastside-virtual-reality-meetup/
+- Seattle VR / AR Meetup: https://www.meetup.com/seattle-vr-demos-experiences/
+- Pierce County MakerFest (archived): https://web.archive.org/web/20181128021238/http://stem.pcls.us/makerfest/
+
+---
+
+## Origin
+Created during:
+- Social Justice Game Jam (2017)
+- Event: https://www.eventbrite.com/e/social-justice-game-jam-tickets-28235959515
+
+Theme focus:
+- Civil legal aid
+- Labor systems
+- Social impact through interactive media
+
+---
+
+## Key Learnings
+- VR UX must be validated through physical interaction testing
+- Embodied systems communicate emotional states more effectively than text or narrative alone
+- Players naturally attempt to optimize even when systems are structurally constrained
+- Small mechanical changes significantly impact user interpretation and comfort
+- Observation during live demos is critical to understanding VR UX behavior
+
+---
+
+## Skills Demonstrated
+Unity • C# • VR Interaction Design • UX Research • Systems Design • Game Design • Rapid Prototyping • Observational User Testing • Social Impact Simulation Design
