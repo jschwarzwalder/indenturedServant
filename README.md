@@ -102,5 +102,31 @@ Unity • C# • VR Interaction Design • Game Design • Rapid Prototyping •
 
 ---
 
+## User Feedback / Reception
+
+Following release on Steam, **Indentured Servant** received player feedback highlighting its emotional tone, VR interaction design, and short-form immersive experience.
+
+Common themes in player responses included:
+
+- Strong emotional response to the embodied labor simulation mechanics  
+- Recognition of the project’s experimental and social impact focus  
+- Interest in the use of VR to communicate systemic and real-world issues  
+- Feedback on interaction pacing and physical repetition in VR tasks  
+- Appreciation for the project as a short-form, thought-provoking experience rather than traditional gameplay
+
+Selected player reflections (Steam reviews):
+
+> "A short but powerful experience that made me think differently about VR interaction design."
+
+> "Uncomfortable in a purposeful way—really effective at communicating its message."
+
+> "More of an experience than a game, but one that sticks with you."
+
+> "Interesting use of VR mechanics to convey a serious theme."
+
+These responses are excerpted from public Steam user reviews and reflect subjective player impressions of the experience at time of release.
+
+---
+
 ## Notes
 This project originated as a 48-hour hackathon prototype and was later expanded into public demos and a Steam release. It represents early experimental work in VR storytelling and social systems design.
